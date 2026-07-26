@@ -32,7 +32,7 @@ import com.google.android.material.textfield.TextInputLayout;
  * swaps {@link #attemptLogin()}'s Toast for the real {@code POST /api/auth/login}
  * call and navigates on success.
  */
-public class LoginFragment extends Fragment {
+public class RegistrationFragment extends Fragment {
 
     private FragmentLoginBinding binding;
     private boolean wasImeVisible;
