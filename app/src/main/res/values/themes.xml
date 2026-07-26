@@ -1,9 +1,57 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.MeterEagle" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/brand_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Auth screens are always on the dark blue field, so status-bar
+             icons must stay light in both day and night mode. -->
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="Theme.MeterEagle" parent="Base.Theme.MeterEagle" />
+
+    <!-- ==== Glass-card widget styles (reference mock #2) ==== -->
+
+    <style name="ThemeOverlay.MeterEagle.GlassInput" parent="ThemeOverlay.Material3.TextInputEditText.FilledBox">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorOnSurfaceVariant">@color/glass_hint</item>
+        <item name="colorError">@color/glass_error</item>
+    </style>
+
+    <!-- Underline-style field. Box mode is "none" because a filled box paints
+         its fill onto an opaque backing — a translucent boxBackgroundColor comes
+         out muddy instead of showing the artwork through. The underline is
+         @drawable/bg_field_underline on the EditText instead. -->
+    <style name="Widget.MeterEagle.TextInputLayout" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MeterEagle.GlassInput</item>
+        <item name="boxBackgroundMode">none</item>
+        <item name="hintTextColor">@color/white</item>
+        <item name="android:textColorHint">@color/glass_hint</item>
+        <item name="startIconTint">@color/glass_hint</item>
+        <item name="endIconTint">@color/glass_hint</item>
+        <item name="errorTextColor">@color/glass_error</item>
+        <item name="errorIconTint">@color/glass_error</item>
+    </style>
+
+    <style name="Widget.MeterEagle.TextInputEditText" parent="Widget.Material3.TextInputEditText.FilledBox">
+        <item name="android:textColor">@color/glass_text</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Primary action: solid white on blue reads strongest over the glass. -->
+    <style name="Widget.MeterEagle.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/brand_blue</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="cornerRadius">14dp</item>
+        <item name="rippleColor">@color/brand_blue_light</item>
+    </style>
+
+    <style name="Widget.MeterEagle.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="rippleColor">@color/glass_stroke</item>
+    </style>
 </resources>

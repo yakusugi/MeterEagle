@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Mock #1 supplies the stage: full-bleed blue water field with wave/blob shapes.
+  Mock #2 supplies the form: one translucent "glass" panel holding the inputs,
+  so the artwork stays visible through the card instead of being covered by a
+  white sheet.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brand_blue">
+
+    <!-- centerCrop rather than a background drawable: a vector set as a
+         background gets stretched to the view box and the blobs go oval. -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_water"
+        android:contentDescription="@null"
+        android:importantForAccessibility="no" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_title"
+                android:textColor="@color/white"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.05"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:id="@+id/subtitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_subtitle"
+                android:textColor="@color/glass_hint"
+                android:textSize="14sp"
+                android:layout_marginBottom="22dp" />
+
+            <!-- ==== The glass panel ==== -->
+            <LinearLayout
+                android:id="@+id/glassCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_glass_card"
+                android:paddingHorizontal="24dp"
+                android:paddingTop="28dp"
+                android:paddingBottom="24dp"
+                android:elevation="8dp">
+
+                <ImageView
+                    android:id="@+id/avatarImage"
+                    android:layout_width="76dp"
+                    android:layout_height="76dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_avatar_circle"
+                    android:padding="18dp"
+                    android:src="@drawable/ic_person"
+                    app:tint="@color/glass_hint"
+                    android:contentDescription="@string/cd_avatar"
+                    android:layout_marginBottom="20dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emailInputLayout"
+                    style="@style/Widget.MeterEagle.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/login_email"
+                    app:startIconDrawable="@drawable/ic_mail"
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailInput"
+                        style="@style/Widget.MeterEagle.TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_field_underline"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingTop="22dp"
+                        android:paddingBottom="10dp"
+                        android:inputType="textEmailAddress"
+                        android:imeOptions="actionNext"
+                        android:maxLines="1"
+                        android:autofillHints="emailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/passwordInputLayout"
+                    style="@style/Widget.MeterEagle.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/login_password"
+                    app:startIconDrawable="@drawable/ic_lock"
+                    app:endIconMode="password_toggle"
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/passwordInput"
+                        style="@style/Widget.MeterEagle.TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_field_underline"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingTop="22dp"
+                        android:paddingBottom="10dp"
+                        android:inputType="textPassword"
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:autofillHints="password" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Remember me / Forgot password, one row, pushed apart -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="18dp">
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/rememberMeCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/login_remember_me"
+                        android:textColor="@color/glass_text"
+                        android:textSize="13sp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingStart="4dp"
+                        app:buttonTint="@color/white"
+                        app:useMaterialThemeColors="false" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/forgotPasswordText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/login_forgot_password"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:textStyle="italic"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="4dp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/loginButton"
+                    style="@style/Widget.MeterEagle.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="@string/login_action" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signUpButton"
+                style="@style/Widget.MeterEagle.Button.Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:text="@string/login_no_account"
+                tools:ignore="TextSizeCheck" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

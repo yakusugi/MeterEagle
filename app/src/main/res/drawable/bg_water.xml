@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Background lifted from reference mock #1: a flat blue field with soft
+  wave/blob shapes. Drawn as a vector (not a bitmap) so it scales to any
+  screen density without shipping five PNGs.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="411dp"
+    android:height="891dp"
+    android:viewportWidth="400"
+    android:viewportHeight="800">
+
+    <!-- Base field -->
+    <path
+        android:fillColor="@color/brand_blue"
+        android:pathData="M0,0 H400 V800 H0 Z" />
+
+    <!-- Light wave sweeping down from the top-right -->
+    <path
+        android:fillColor="@color/brand_blue_light"
+        android:pathData="M400,0 L400,420 C332,468 254,392 186,308 C120,226 48,186 0,214 L0,0 Z" />
+
+    <!-- Deep wave rising from the bottom-left -->
+    <path
+        android:fillColor="@color/brand_blue_deep"
+        android:pathData="M0,800 L0,540 C86,486 168,556 248,614 C316,664 362,674 400,652 L400,800 Z" />
+
+    <!-- Bubbles: a few translucent circles for depth, same as the mock -->
+    <path
+        android:fillColor="@color/glass_bubble"
+        android:pathData="M296,132 m-52,0 a52,52 0 1,0 104,0 a52,52 0 1,0 -104,0" />
+    <path
+        android:fillColor="@color/glass_bubble"
+        android:pathData="M92,96 m-26,0 a26,26 0 1,0 52,0 a26,26 0 1,0 -52,0" />
+    <path
+        android:fillColor="@color/glass_bubble"
+        android:pathData="M348,300 m-18,0 a18,18 0 1,0 36,0 a18,18 0 1,0 -36,0" />
+    <path
+        android:fillColor="@color/glass_bubble"
+        android:pathData="M56,706 m-40,0 a40,40 0 1,0 80,0 a40,40 0 1,0 -80,0" />
+    <path
+        android:fillColor="@color/glass_bubble"
+        android:pathData="M318,742 m-22,0 a22,22 0 1,0 44,0 a22,22 0 1,0 -44,0" />
+</vector>

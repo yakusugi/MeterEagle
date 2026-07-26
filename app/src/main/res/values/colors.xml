@@ -2,4 +2,21 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Brand: the "water" blue family from the reference mock -->
+    <color name="brand_blue">#FF1668F2</color>
+    <color name="brand_blue_light">#FF2E7DFF</color>
+    <color name="brand_blue_deep">#FF0B4FD1</color>
+
+    <!-- Frosted-glass card: white veiling over the blue, no real blur needed -->
+    <color name="glass_fill">#33FFFFFF</color>
+    <color name="glass_stroke">#4DFFFFFF</color>
+    <color name="glass_bubble">#1AFFFFFF</color>
+
+    <!-- Text on top of the glass -->
+    <color name="glass_text">#FFFFFFFF</color>
+    <color name="glass_hint">#B3FFFFFF</color>
+    <color name="glass_underline">#80FFFFFF</color>
+    <!-- Material's default red is unreadable on blue; wash it toward white. -->
+    <color name="glass_error">#FFFFD1D1</color>
 </resources>

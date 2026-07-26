@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">MeterEagle</string>
+
+    <!-- Login -->
+    <string name="login_title">Welcome\nBack</string>
+    <string name="login_subtitle">Sign in to start reading meters</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_remember_me">Remember me</string>
+    <string name="login_forgot_password">Forgot password?</string>
+    <string name="login_action">Log in</string>
+    <string name="login_no_account">Don\'t have an account? Sign up</string>
+
+    <string name="login_error_email_empty">Enter your email</string>
+    <string name="login_error_email_invalid">That doesn\'t look like an email address</string>
+    <string name="login_error_password_empty">Enter your password</string>
+
+    <string name="cd_back">Back</string>
+    <string name="cd_avatar">Account</string>
 </resources>

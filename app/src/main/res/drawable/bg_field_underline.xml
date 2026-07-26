@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Drawn by hand rather than via boxBackgroundMode="filled": the filled box
+  composites its fill against an opaque backing, so a translucent box turns
+  muddy instead of letting the artwork through. Box mode is "none" and this
+  underline rides on the EditText itself.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/bg_field_underline_focused" android:state_focused="true" />
+    <item android:drawable="@drawable/bg_field_underline_normal" />
+</selector>
