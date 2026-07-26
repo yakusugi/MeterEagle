@@ -3,15 +3,26 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Brand: the "water" blue family from the reference mock -->
+    <!-- Brand blue: the theme/accent colour, distinct from the sky ramp below -->
     <color name="brand_blue">#FF1668F2</color>
     <color name="brand_blue_light">#FF2E7DFF</color>
-    <color name="brand_blue_deep">#FF0B4FD1</color>
+
+    <!-- Sky: deep at the zenith, brightening toward the horizon -->
+    <color name="sky_top">#FF0A3F9E</color>
+    <color name="sky_mid">#FF1668F2</color>
+    <color name="sky_bottom">#FF4E95FF</color>
+
+    <!-- Clouds and the eagle mark. Lit from below rather than drawn as dark
+         silhouettes: against the deep blue at the top of the sky a dark bird
+         would disappear, a pale one reads. -->
+    <color name="cloud_soft">#24FFFFFF</color>
+    <color name="cloud_bright">#38FFFFFF</color>
+    <color name="eagle_mark">#59FFFFFF</color>
+    <color name="eagle_far">#2EFFFFFF</color>
 
     <!-- Frosted-glass card: white veiling over the blue, no real blur needed -->
     <color name="glass_fill">#33FFFFFF</color>
     <color name="glass_stroke">#4DFFFFFF</color>
-    <color name="glass_bubble">#1AFFFFFF</color>
 
     <!-- Text on top of the glass -->
     <color name="glass_text">#FFFFFFFF</color>

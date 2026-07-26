@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Blue sky with a soaring eagle — the app's namesake.
+
+  Still a vector rather than a bitmap so it scales to any density without
+  shipping five PNGs. Composition is built around the foreground: the eagle
+  sits top-right where nothing overlaps it, the title occupies the upper-left,
+  and the clouds clear the glass card top and bottom.
+
+  Clouds are single paths made of overlapping circles plus a flat base. Every
+  subpath is wound the SAME direction (arcs use sweep-flag 1 to match the
+  clockwise rect) so non-zero winding unions them into one silhouette. Mixing
+  directions makes the overlaps cancel and the seams show through.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="411dp"
+    android:height="891dp"
+    android:viewportWidth="400"
+    android:viewportHeight="800">
+
+    <!-- Sky gradient: deepest overhead, brightest at the horizon -->
+    <path android:pathData="M0,0 H400 V800 H0 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="0"
+                android:startY="0"
+                android:endX="0"
+                android:endY="800">
+                <item android:offset="0" android:color="@color/sky_top" />
+                <item android:offset="0.55" android:color="@color/sky_mid" />
+                <item android:offset="1" android:color="@color/sky_bottom" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- High cloud, clearing the top edge of the card -->
+    <path
+        android:fillColor="@color/cloud_soft"
+        android:pathData="M300,240 m-16,0 a16,16 0 1,1 32,0 a16,16 0 1,1 -32,0
+                          M326,231 m-22,0 a22,22 0 1,1 44,0 a22,22 0 1,1 -44,0
+                          M356,242 m-13,0 a13,13 0 1,1 26,0 a13,13 0 1,1 -26,0
+                          M284,236 H369 V258 H284 Z" />
+
+    <!-- Lower clouds, sitting below the card -->
+    <path
+        android:fillColor="@color/cloud_bright"
+        android:pathData="M36,712 m-30,0 a30,30 0 1,1 60,0 a30,30 0 1,1 -60,0
+                          M84,698 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0
+                          M130,714 m-24,0 a24,24 0 1,1 48,0 a24,24 0 1,1 -48,0
+                          M6,706 H154 V744 H6 Z" />
+    <path
+        android:fillColor="@color/cloud_bright"
+        android:pathData="M292,690 m-22,0 a22,22 0 1,1 44,0 a22,22 0 1,1 -44,0
+                          M330,678 m-30,0 a30,30 0 1,1 60,0 a30,30 0 1,1 -60,0
+                          M366,692 m-18,0 a18,18 0 1,1 36,0 a18,18 0 1,1 -36,0
+                          M270,686 H384 V718 H270 Z" />
+
+    <!-- Distant birds, small enough to read as depth cues -->
+    <group
+        android:translateX="150"
+        android:translateY="54"
+        android:scaleX="0.26"
+        android:scaleY="0.26">
+        <path
+            android:fillColor="@color/eagle_far"
+            android:pathData="M0,-30 C1.5,-30 3.5,-27 3.5,-24 L5,-18 L7,-15 C18,-20 32,-22 44,-21 C50,-20 54,-19 56,-17 L59,-14 L54,-13 L57,-9 L52,-8 L54,-4 L49,-4 C36,-3 22,-2 10,0 L8,2 L6,10 L9,22 L4,20 L0,22 L-4,20 L-9,22 L-6,10 L-8,2 L-10,0 C-22,-2 -36,-3 -49,-4 L-54,-4 L-52,-8 L-57,-9 L-54,-13 L-59,-14 C-54,-19 -50,-20 -44,-21 C-32,-22 -18,-20 -7,-15 L-5,-18 L-3.5,-24 C-3.5,-27 -1.5,-30 0,-30 Z" />
+    </group>
+    <group
+        android:translateX="200"
+        android:translateY="92"
+        android:scaleX="0.36"
+        android:scaleY="0.36">
+        <path
+            android:fillColor="@color/eagle_far"
+            android:pathData="M0,-30 C1.5,-30 3.5,-27 3.5,-24 L5,-18 L7,-15 C18,-20 32,-22 44,-21 C50,-20 54,-19 56,-17 L59,-14 L54,-13 L57,-9 L52,-8 L54,-4 L49,-4 C36,-3 22,-2 10,0 L8,2 L6,10 L9,22 L4,20 L0,22 L-4,20 L-9,22 L-6,10 L-8,2 L-10,0 C-22,-2 -36,-3 -49,-4 L-54,-4 L-52,-8 L-57,-9 L-54,-13 L-59,-14 C-54,-19 -50,-20 -44,-21 C-32,-22 -18,-20 -7,-15 L-5,-18 L-3.5,-24 C-3.5,-27 -1.5,-30 0,-30 Z" />
+    </group>
+
+    <!-- The eagle. What separates an eagle from a gull in silhouette is
+         proportion, not detail: wings long, broad and squared off rather than
+         swept to a point, splayed primaries at the tips, a short head and a
+         wedge tail. Body kept narrow so it doesn't read as a torso. -->
+    <group
+        android:translateX="295"
+        android:translateY="132"
+        android:scaleX="1.5"
+        android:scaleY="1.5">
+        <path
+            android:fillColor="@color/eagle_mark"
+            android:pathData="M0,-30 C1.5,-30 3.5,-27 3.5,-24 L5,-18 L7,-15 C18,-20 32,-22 44,-21 C50,-20 54,-19 56,-17 L59,-14 L54,-13 L57,-9 L52,-8 L54,-4 L49,-4 C36,-3 22,-2 10,0 L8,2 L6,10 L9,22 L4,20 L0,22 L-4,20 L-9,22 L-6,10 L-8,2 L-10,0 C-22,-2 -36,-3 -49,-4 L-54,-4 L-52,-8 L-57,-9 L-54,-13 L-59,-14 C-54,-19 -50,-20 -44,-21 C-32,-22 -18,-20 -7,-15 L-5,-18 L-3.5,-24 C-3.5,-27 -1.5,-30 0,-30 Z" />
+    </group>
+</vector>

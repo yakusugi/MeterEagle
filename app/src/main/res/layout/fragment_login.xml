@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Mock #1 supplies the stage: full-bleed blue water field with wave/blob shapes.
+  Mock #1 supplies the stage: a full-bleed blue field, reworked from its water
+  theme into sky-and-eagle to match the app's name.
   Mock #2 supplies the form: one translucent "glass" panel holding the inputs,
   so the artwork stays visible through the card instead of being covered by a
   white sheet.
@@ -10,7 +11,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brand_blue">
+    android:background="@color/sky_mid">
 
     <!-- centerCrop rather than a background drawable: a vector set as a
          background gets stretched to the view box and the blobs go oval. -->
@@ -19,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/bg_water"
+        android:src="@drawable/bg_sky"
         android:contentDescription="@null"
         android:importantForAccessibility="no" />
 
